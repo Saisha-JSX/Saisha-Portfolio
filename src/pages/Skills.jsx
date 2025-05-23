@@ -5,7 +5,7 @@ import { SiTailwindcss } from 'react-icons/si';
 const Skills = () => {
 
   return (
-    <div className="bg-pink-100 py-16 skills-section">
+ <section id="skills" className="bg-pink-100 py-16 skills-section">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-3xl font-semibold text-gray-700 mb-8">My Skills</h2>
         <div className="flex justify-center gap-16 flex-wrap">
@@ -52,7 +52,7 @@ const Skills = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

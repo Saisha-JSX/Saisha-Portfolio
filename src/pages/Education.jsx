@@ -22,7 +22,7 @@ const Education = () => {
   ];
 
   return (
-    <div className="bg-pink-100 w-full py-12 px-6 flex flex-col items-center">
+    <section id="education" className="bg-pink-100 w-full py-12 px-6 flex flex-col items-center">
       <h2 className="text-3xl font-semibold text-pink-700 border-b-2 border-pink-400 pb-2 mb-12 text-center">
         Education
       </h2>
@@ -66,7 +66,7 @@ const Education = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

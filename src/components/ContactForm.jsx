@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -10,16 +15,16 @@ const ContactForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("Form submitted! (Connect this to backend)");
-    // Add actual form handling here (e.g., Formspree or EmailJS)
+    // Connect to backend, Formspree, EmailJS, etc.
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="w-full">
       {["name", "email", "subject", "message"].map((field, index) => (
-        <div key={index} className="mb-6">
+        <div key={index} className="mb-5 sm:mb-6">
           <label
             htmlFor={field}
-            className="block text-gray-700 text-sm font-medium mb-2 capitalize"
+            className="block text-sm text-gray-700 font-medium mb-1 sm:mb-2 capitalize"
           >
             {field === "message" ? "Your Message" : `Your ${field}`}
           </label>
@@ -27,11 +32,11 @@ const ContactForm = () => {
             <textarea
               id={field}
               name={field}
-              rows="4"
+              rows="3"
               value={formData[field]}
               onChange={handleChange}
               placeholder="Write your message"
-              className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-pink-300 rounded-lg"
             />
           ) : (
             <input
@@ -41,7 +46,7 @@ const ContactForm = () => {
               value={formData[field]}
               onChange={handleChange}
               placeholder={`Enter your ${field}`}
-              className="w-full px-4 py-3 border border-pink-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-pink-300 rounded-lg"
             />
           )}
         </div>
@@ -49,7 +54,7 @@ const ContactForm = () => {
 
       <button
         type="submit"
-        className="w-full py-3 px-4 bg-pink-500 text-white font-semibold rounded-lg hover:bg-pink-600 focus:outline-none"
+        className="w-full py-3 px-4 bg-pink-500 text-white font-semibold rounded-lg hover:bg-pink-600"
       >
         Send Message
       </button>
