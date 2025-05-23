@@ -1,34 +1,57 @@
-import React, { useEffect } from 'react';
-import gsap from 'gsap';
-import About from './About';
-import Education from './Education';
-import Skills from './Skills';
-import Contact from './Contact';
+import React, { useEffect, useState } from "react";
+import gsap from "gsap";
+import About from "./About";
+import Education from "./Education";
+import Skills from "./Skills";
+import Projects from "./Projects";
+import Contact from "./Contact";
+import ScrollToTopButton from "../components/ScrollToTopButton";
 
 const Home = () => {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    // Show button after user scrolls down 300px or more
+    const onScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+
+    window.addEventListener("scroll", onScroll);
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   useEffect(() => {
     gsap.fromTo(
-      '.profile-img',
+      ".profile-img",
       { opacity: 0, scale: 0.5 },
-      { opacity: 1, scale: 1, duration: 1, ease: 'power3.out' }
+      { opacity: 1, scale: 1, duration: 1, ease: "power3.out" }
     );
 
     gsap.fromTo(
-      '.text-section',
+      ".text-section",
       { opacity: 0, x: -100 },
-      { opacity: 1, x: 0, duration: 1, delay: 0.3, ease: 'power3.out' }
+      { opacity: 1, x: 0, duration: 1, delay: 0.3, ease: "power3.out" }
     );
 
     gsap.fromTo(
-      '.buttons a',
+      ".buttons a",
       { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, stagger: 0.2, duration: 0.8, delay: 0.5, ease: 'power3.out' }
+      { opacity: 1, y: 0, stagger: 0.2, duration: 0.8, delay: 0.5, ease: "power3.out" }
     );
   }, []);
 
   return (
     <div className="bg-pink-100 min-h-screen flex flex-col items-center pt-10">
-      {/* Home Section */}
+      {/* Your sections */}
       <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start px-6 md:px-44 py-24">
         <div className="profile-img w-64 h-64 mb-8 md:mb-0 md:mr-18 flex justify-center items-center bg-pink-200 rounded-full overflow-hidden">
           <img
@@ -42,7 +65,8 @@ const Home = () => {
           <div className="text-xl font-thin text-gray-600 mb-2">Hello, I’m</div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-pink-600 mb-2">Saisha Karki</h1>
           <span className="text-lg text-gray-600 mb-4">
-            A passionate <span className="text-pink-600">Web Developer</span> and <span className="text-pink-600">Designer</span> based in Nepal.
+            A passionate <span className="text-pink-600">Web Developer</span> and{" "}
+            <span className="text-pink-600">Designer</span> based in Nepal.
           </span>
           <p className="text-gray-700 text-lg mb-6 max-w-[600px]">
             I'm passionate about creating meaningful experiences and pushing the boundaries of what is possible in my field.
@@ -64,17 +88,14 @@ const Home = () => {
         </div>
       </div>
 
-      {/* About Section */}
       <About />
+      <Education />
+      <Skills />
+      <Projects />
+      <Contact />
 
-        {/* Education Section */}
-        <Education />
-
-        {/* Skills Section */}
-        <Skills />
-
-        {/* Contact Section */}
-        <Contact />
+      {/* Scroll to top button */}
+      {showScrollTop && <ScrollToTopButton onClick={scrollToTop} />}
     </div>
   );
 };
