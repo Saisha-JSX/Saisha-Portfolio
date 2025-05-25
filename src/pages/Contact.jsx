@@ -9,7 +9,7 @@ const Contact = () => {
         <h2 className="text-2xl sm:text-4xl font-bold text-pink-700 border-b border-pink-600 pb-2 mb-10 sm:mb-14 font-serif">
           Get in Touch
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full">
           <ContactInfo />
           <div className="w-full max-h-[600px] sm:max-h-none overflow-y-auto">
             <ContactForm />

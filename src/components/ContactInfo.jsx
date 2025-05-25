@@ -40,7 +40,7 @@ const ContactInfo = () => {
   ];
 
   return (
-    <div>
+<div className="ml-0 sm:ml-8 md:ml-20">
       <h3 className="text-xl sm:text-2xl font-semibold text-pink-800 mb-3 sm:mb-4 font-serif">
         Contact Information
       </h3>
