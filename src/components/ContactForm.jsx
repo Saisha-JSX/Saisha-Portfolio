@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 
 const ContactForm = () => {
@@ -55,7 +56,14 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-lg">
+    <motion.form
+      onSubmit={handleSubmit}
+      className="max-w-lg"
+      initial={{ opacity: 0, x: 30 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
       {["name", "email", "subject", "message"].map((field, index) => (
         <div key={index} className="mb-5 sm:mb-6">
           <label
@@ -133,7 +141,7 @@ const ContactForm = () => {
         )}
         {submitting ? "Sending..." : "Send Message"}
       </button>
-    </form>
+    </motion.form>
   );
 };
 
