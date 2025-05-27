@@ -8,6 +8,7 @@ import Education from './pages/Education';
 import Projects from './pages/Projects';
 import Skills from './pages/Skills';
 import Contact from './pages/Contact';
+import Gallery from './pages/Gallery';  // <-- Import Gallery
 
 // Import Navbar
 import Navbar from './components/Navbar';
@@ -28,19 +29,19 @@ const App = () => {
           <Route path="/projects" element={<Projects />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/gallery" element={<Gallery />} />  {/* Added Gallery route */}
         </Routes>
       </div>
-<footer className="bg-pink-100 text-center py-8">
-  <p className="text-pink-700 text-sm sm:text-base md:text-lg font-light leading-relaxed">
-    © 2023 Saisha Karki. All rights reserved.
-  </p>
-  <p className="text-pink-700 text-xs sm:text-sm md:text-base font-light mt-2 flex justify-center items-center space-x-1">
-    <span className="text-xs sm:text-sm">Made with</span> 
-    <FontAwesomeIcon icon={faHeart} className="text-pink-500 text-xs sm:text-sm" />
-    <span className="text-xs sm:text-sm">using React</span>
-  </p>
-</footer>
-
+      <footer className="bg-pink-100 text-center py-8">
+        <p className="text-pink-700 text-sm sm:text-base md:text-lg font-light leading-relaxed">
+          © 2023 Saisha Karki. All rights reserved.
+        </p>
+        <p className="text-pink-700 text-xs sm:text-sm md:text-base font-light mt-2 flex justify-center items-center space-x-1">
+          <span className="text-xs sm:text-sm">Made with</span> 
+          <FontAwesomeIcon icon={faHeart} className="text-pink-500 text-xs sm:text-sm" />
+          <span className="text-xs sm:text-sm">using React</span>
+        </p>
+      </footer>
     </Router>
   );
 };
