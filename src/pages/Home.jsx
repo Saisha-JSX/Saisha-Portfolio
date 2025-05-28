@@ -21,7 +21,6 @@ const Home = () => {
     };
 
     window.addEventListener("scroll", onScroll);
-
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -51,11 +50,11 @@ const Home = () => {
 
   return (
     <div className="bg-pink-100 min-h-screen flex flex-col items-center pt-10">
-      {/* Your sections */}
+      {/* Hero Section */}
       <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start px-6 md:px-44 py-24">
         <div className="profile-img w-64 h-64 mb-8 md:mb-0 md:mr-18 flex justify-center items-center bg-pink-200 rounded-full overflow-hidden">
           <img
-            src="https://via.placeholder.com/250"
+            src="/images/saisha_karki.jpg"
             alt="Profile"
             className="w-full h-full object-cover rounded-full"
           />
@@ -71,6 +70,8 @@ const Home = () => {
           <p className="text-gray-700 text-lg mb-6 max-w-[600px]">
             I'm passionate about creating meaningful experiences and pushing the boundaries of what is possible in my field.
           </p>
+
+          {/* Buttons */}
           <div className="buttons flex flex-col md:flex-row space-y-4 md:space-x-4 md:space-y-0">
             <a
               href="#contact"
@@ -78,23 +79,40 @@ const Home = () => {
             >
               Contact Me
             </a>
-            <a
-              href="#portfolio"
-              className="border-2 border-pink-600 text-pink-600 py-2 px-6 rounded-3xl text-lg hover:bg-pink-100 transition"
-            >
-              View My Work
-            </a>
+<a
+  href="/Saisha_Karki_CV.pdf"
+  download
+  className="flex items-center justify-center gap-2 bg-white border-1 border-pink-600 text-pink-600 py-2 px-6 rounded-full text-lg font-medium transition-all duration-300 ease-in-out hover:bg-pink-600 hover:text-white hover:shadow-lg"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-5 w-5"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={2}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"
+    />
+  </svg>
+  Download CV
+</a>
+
           </div>
         </div>
       </div>
 
+      {/* Other Sections */}
       <About />
       <Education />
       <Skills />
       <Projects />
       <Contact />
 
-      {/* Scroll to top button */}
+      {/* Scroll to Top Button */}
       {showScrollTop && <ScrollToTopButton onClick={scrollToTop} />}
     </div>
   );

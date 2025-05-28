@@ -23,7 +23,7 @@ const Education = () => {
       duration: "2023 - Present",
       location: "Duhabi, Itahari",
       description: "Studying software development, programming, and system analysis with a practical focus.",
-      image: "https://via.placeholder.com/160x100",
+      image: "/images/IIC.webp",
     },
     {
       title: "High School ",
@@ -31,7 +31,7 @@ const Education = () => {
       duration: "2020 - 2022",
       location: "Itahari, Sunsari",
       description: "Completed higher secondary education with an emphasis on science and biology.",
-      image: "https://via.placeholder.com/160x100",
+      image: "/images/koshi.jpg",
     },
   ];
 
